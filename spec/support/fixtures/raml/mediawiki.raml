@@ -1,0 +1,156 @@
+#%RAML 1.0
+title: MediaWiki
+version: v1
+baseUri: https://en.wikipedia.org/w/api.php
+description: The MediaWiki action API is a web service that provides convenient access to wiki features, data, and meta-data over HTTP, via a URL usually at api.php
+mediaType: application/json
+types:
+  NormalizedItem:
+    type: object
+    properties:
+      from: string
+      to: string
+  Pages:
+    type: object
+    properties:
+      [\d]:
+        type: object
+        properties:
+          ns?: number
+          title?: string
+          missing?: string
+  Normalization:
+    type: object
+    properties:
+      query:
+        type: object
+        properties:
+          normalized: NormalizedItem[]
+          pages: Pages
+    example:
+      query:
+        normalized:
+          - from: "Project:articleA"
+            to: "Wikipedia:ArticleA"
+        pages:
+          1:
+            ns: 4
+            title: "Wikipedia:ArticleA"
+            missing: ""
+  QueryResult:
+    type: object
+    properties:
+      query:
+        type: object
+        properties:
+          pages: Pages
+    example:
+      query:
+        pages:
+          1:
+            ns: 4
+            title: "Wikipedia:ArticleA"
+            missing: ""
+  Destination:
+    type: object
+    properties:
+      from: string
+      to: string
+  RedirectsQuery:
+    type: object
+    properties:
+      query:
+        type: object
+        properties:
+          redirects: Destination
+          pages: Pages
+    example:
+      query:
+        redirects:
+          from: "Main page"
+          to: "Main Page"
+        pages:
+          1:
+            ns: 4
+            title: "Wikipedia:ArticleA"
+            missing: ""
+  Page:
+    type: object
+    properties:
+      ns?: number
+      title?: string
+      pageid?: string
+    example:
+      ns: "10"
+      title: "Template:API Intro"
+      pageid: "16385"
+  ExportQuery:
+    type: object
+    properties:
+      query:
+        type: object
+        properties:
+          pages: Page[]
+          export: object
+    example:
+      query:
+        pages:
+          ns: "10"
+          title: "Template:API Intro"
+          pageid: "16385"
+        export: null
+/:
+  get:
+    description: Title normalization
+    queryParameters:
+      action:
+        enum: [ query ]
+      titles:
+        enum: [ articleA|article_B ]
+    responses:
+      200:
+        body:
+          application/json:
+            type: Normalization
+#  get:
+#    description: Missing and invalid titles
+#    queryParameters:
+#      action:
+#        enum: [query]
+#      titles:
+#        enum: [Doesntexist|Main%20Page|Talk]
+#      format:
+#        enum: [jsonfm]
+#    responses:
+#      200:
+#        body:
+#          application/json:
+#            type: QueryResult
+#  get:
+#    description: Resolving redirects
+#    queryParameters:
+#      action:
+#        enum: [query]
+#      titles:
+#        enum: [Doesntexist|Main%20Page|Talk]
+#      redirects:
+#    responses:
+#      200:
+#        body:
+#          application/json:
+#            type: RedirectsQuery
+#  get:
+#    description: Exporting pages
+#    queryParameters:
+#      action:
+#        enum: [query]
+#      titles:
+#        enum: [API]
+#      generator:
+#        enum: [templates]
+#      export:
+#    responses:
+#      200:
+#        body:
+#          application/json:
+#            type: ExportQuery

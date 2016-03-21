@@ -1,0 +1,5 @@
+require 'simplecov'
+require 'pry'
+require 'brujula'
+require 'rspec'
+require_relative '../../spec/support/matchers'
