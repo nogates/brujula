@@ -3,7 +3,7 @@ Brújula
 
 [![Build Status](https://travis-ci.org/nogates/brujula.svg?branch=master)](https://travis-ci.org/nogates/brujula)
 [![Code Climate](https://codeclimate.com/github/nogates/brujula/badges/gpa.svg)](https://codeclimate.com/github/nogates/brujula)
-[![Test Coverage](https://codeclimate.com/github/nogates/brujula/badges/coverage.svg)](https://codeclimate.com/github/nogates/brujula)
+[![Test Coverage](https://codeclimate.com/github/nogates/brujula/badges/coverage.svg)](https://codeclimate.com/github/nogates/brujula/coverage)
 
 _Yet another Ruby RAML parser aiming for version 1.0 fully support_
 
