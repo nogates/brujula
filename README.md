@@ -18,7 +18,7 @@ Install the gem `brujula` via your preferred method, and use `parse_file` to loa
 ```ruby
 require 'brujula'
 
-root = Brujula.parse_file('path/my_example_api.raml')
+raml = Brujula.parse_file('path/my_example_api.raml')
 
 # Alternatively
 
@@ -30,20 +30,20 @@ title: 'My example API'
 
 RAML
 
-root = Brujula.parse(raml)
+raml = Brujula.parse(raml)
 ```
 
 As expected, the properties of the root object can be accessed from the root object
 
 ```ruby
-root.title
+raml.root.title
 => 'My example API'
 ```
 
 Object collections, such as Resources, Methods or Security Schemes, inherits from `Brujula::MapObject`, which implements the `Enumerable` module. Thus, you can use any of this module's method to get collection objects.
 
 ```ruby
-root.resources.each_with_object([]) do |resource, resource_names|
+raml.root.resources.each_with_object([]) do |resource, resource_names|
   resource_names << resource.name
 end
 ```
@@ -51,7 +51,7 @@ end
 Alternatively, you can you use hash methods such as `[]` or `fetch` to get specific objects by its key name
 
 ```ruby
-root.resources['/examples']
+raml.root.resources['/examples']
 ```
 
 
