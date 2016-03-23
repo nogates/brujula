@@ -6,6 +6,7 @@ require_relative 'brujula/initializers/yaml_include'
 
 require_relative 'brujula/object_parser'
 require_relative 'brujula/object_builder'
+require_relative 'brujula/referrer'
 require_relative 'brujula/scheme'
 require_relative 'brujula/raml'
 require_relative 'brujula/object'
