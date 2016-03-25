@@ -13,10 +13,10 @@ module Brujula
         instance.dup.tap do |object|
           each_inheritable_attributes do |name, attribute|
             original_item = object.instance_variable_get("@#{ name }")
-            thing = Merger.new(
+            merged_item   = Merger.new(
               instance: original_item, superinstance: attribute
             ).call
-            object.instance_variable_set("@#{ name }", thing)
+            object.instance_variable_set("@#{ name }", merged_item)
           end
         end
       end
