@@ -22,7 +22,7 @@ module Brujula
       when Array
         map_object_reference(reference)
       when Hash
-        # object_reference(reference) TODO
+        object_reference(reference)
       when NilClass
         nil_reference(reference)
       else
@@ -33,6 +33,16 @@ module Brujula
     def map_object_reference(reference)
       data.each_with_object([]) do |reference, collection|
         collection << object_to_reference(reference)
+      end
+    end
+
+    def object_reference(reference_hash) # TODO validate parameters name
+      reference, params = reference_hash.first
+
+      string_reference(reference).tap do |object|
+        parameters = object.instance_variable_get("@parameters") || {}
+        parameters.merge!(params)
+        object.instance_variable_set("@parameters", parameters)
       end
     end
 
@@ -55,7 +65,7 @@ module Brujula
         definition.root.traits.fetch(reference)
       else
         raise "Invalid reference"
-      end
+      end.dup
     end
   end
 end
