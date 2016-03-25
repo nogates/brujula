@@ -26,7 +26,8 @@ module Brujula
 
       def apply_type(object)
         Brujula::Mergers::ObjectMerger.new(
-          superinstance: definition.type, instance: object
+          superinstance: parametized_type,
+          instance:      object,
         ).call
       end
 
@@ -43,9 +44,64 @@ module Brujula
       def apply_traits_to_method(method)
         definition.is.inject(method.dup) do |object, trait|
           Brujula::Mergers::ObjectMerger.new(
-            superinstance: trait, instance: object
+            superinstance: parametized_trait(trait, object), instance: object
           ).call
         end
+      end
+
+      def parametized_trait(trait, method)
+        ParameterParser.new(
+          definition: trait,
+          parameters: apply_parameters_for_trait(trait, method)
+        ).call
+      end
+
+
+      def parametized_type
+        ParameterParser.new(
+          definition: definition.type, parameters: apply_parameters_for_type
+        ).call
+      end
+
+      def apply_parameters_for_type
+        type_parameters.tap do |hash|
+          hash.merge!(resource_parameters)
+        end
+      end
+
+      def apply_parameters_for_trait(trait, method)
+        trait_parameters(trait).tap do |hash|
+          hash.merge!(method_parameters(method))
+        end
+      end
+
+      def method_parameters(method)
+        resource_parameters.merge(
+          "methodName" => method.name
+        )
+      end
+
+      def trait_parameters(trait)
+        trait.instance_variable_get("@parameters") || {}
+      end
+
+      def type_parameters
+        definition.type.instance_variable_get("@parameters") || {}
+      end
+
+      def resource_parameters
+        {
+          "resourcePath"     => resource_path,
+          "resourcePathName" => resource_path_name
+        }
+      end
+
+      def resource_path
+        definition.name
+      end
+
+      def resource_path_name
+        definition.name.split('/').last.gsub(/[\{\}]/, "")
       end
     end
   end
