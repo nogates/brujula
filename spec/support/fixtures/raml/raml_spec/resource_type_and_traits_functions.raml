@@ -1,0 +1,32 @@
+#%RAML 1.0
+title: Example API
+version: v1
+mediaType: application/json
+types:
+  Users:
+    type: object
+  User:
+    type: object
+traits:
+  - secured:
+      description: |
+        This should cover all the functions:
+        <<resourcePathName | !singularize>> as userId
+        <<resourcePathName | !pluralize>> as userIds
+        <<resourcePathName | !uppercase>> as USERID
+        <<resourcePathName | !lowercase>> as userid
+        <<resourcePathName | !lowercamelcase>> as userId
+        <<resourcePathName | !uppercamelcase>> as UserId
+        <<resourcePathName | !lowerunderscorecase>> as user_id
+        <<resourcePathName | !upperunderscorecase>> as USER_ID
+        <<resourcePathName | !lowerhyphencase>> as user-id
+        <<resourcePathName | !upperhyphencase>> as USER-ID
+        complex one <<resourcePathName | !upperhyphencase | !lowercase >> user-id
+
+      queryParameters:
+        <<methodName>>: # e.g. get:
+          description: A <<methodName>>-token pair is required  # e.g. A get-token pair...
+          example: <<methodName>>=h8duh3uhhu38   # e.g. get=h8duh3uhhu38
+/userId:
+  is: [ secured ]
+  get:

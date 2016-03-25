@@ -12,5 +12,5 @@ traits:
   type: collection
   is: [ secured ]
   get:
-    is: [ paged, rateLimited ] # this method is also secured
+    is: [ paged: { maxPages: 10 }, rateLimited ] # this method is also secured
   post:                        # this method is also secured
