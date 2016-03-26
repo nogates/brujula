@@ -1,6 +1,7 @@
 module Brujula
   module TypeExtender
     class Method
+
       attr_reader :definition
 
       def initialize(definition:)
@@ -26,36 +27,16 @@ module Brujula
       end
 
       def parametized_trait(trait)
-        ParameterParser.new(
-          definition: trait,
-          parameters: apply_parameters_for_trait(trait)
+        Brujula::Parameters::Parser.new(
+          object:     trait,
+          parameters: parameter_builder(trait).method_params(resource, definition)
         ).call
       end
 
-      def apply_parameters_for_trait(trait)
-        trait_parameters(trait).tap do |hash|
-          hash.merge!(method_parameters)
-        end
-      end
-
-      def trait_parameters(trait)
-        trait.instance_variable_get("@parameters") || {}
-      end
-
-      def method_parameters
-        {
-          "methodName"       => definition.name,
-          "resourcePath"     => resource_path,
-          "resourcePathName" => resource_path_name
-        }
-      end
-
-      def resource_path
-        resource.name
-      end
-
-      def resource_path_name
-        resource.name.split('/').last.gsub(/[\{\}]/, "")
+      def parameter_builder(object)
+        Brujula::Parameters::Builder.new(
+          object: object
+        )
       end
 
       def resource

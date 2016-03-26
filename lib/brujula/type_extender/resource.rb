@@ -50,58 +50,23 @@ module Brujula
       end
 
       def parametized_trait(trait, method)
-        ParameterParser.new(
-          definition: trait,
-          parameters: apply_parameters_for_trait(trait, method)
+        Brujula::Parameters::Parser.new(
+          object:     trait,
+          parameters: parameter_builder(trait).method_params(definition, method)
         ).call
       end
-
 
       def parametized_type
-        ParameterParser.new(
-          definition: definition.type, parameters: apply_parameters_for_type
+        Brujula::Parameters::Parser.new(
+          object:     definition.type,
+          parameters: parameter_builder(definition.type).resource_params(definition)
         ).call
       end
 
-      def apply_parameters_for_type
-        type_parameters.tap do |hash|
-          hash.merge!(resource_parameters)
-        end
-      end
-
-      def apply_parameters_for_trait(trait, method)
-        trait_parameters(trait).tap do |hash|
-          hash.merge!(method_parameters(method))
-        end
-      end
-
-      def method_parameters(method)
-        resource_parameters.merge(
-          "methodName" => method.name
+      def parameter_builder(object)
+        Brujula::Parameters::Builder.new(
+          object: object
         )
-      end
-
-      def trait_parameters(trait)
-        trait.instance_variable_get("@parameters") || {}
-      end
-
-      def type_parameters
-        definition.type.instance_variable_get("@parameters") || {}
-      end
-
-      def resource_parameters
-        {
-          "resourcePath"     => resource_path,
-          "resourcePathName" => resource_path_name
-        }
-      end
-
-      def resource_path
-        definition.name
-      end
-
-      def resource_path_name
-        definition.name.split('/').last.gsub(/[\{\}]/, "")
       end
     end
   end
