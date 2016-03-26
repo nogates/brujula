@@ -1,7 +1,6 @@
 module Brujula
   module Parameters
     class Parser
-
       attr_reader :object, :parameters
 
       def initialize(object:, parameters:)
@@ -10,31 +9,42 @@ module Brujula
       end
 
       def call
-        parametize(object.dup)
+        parametize(object)
       end
 
-      def parametize(object)
-        object.dup.tap do |object|
-          applicable_attributes(object).each do |attribute|
-            property = object.instance_variable_get(attribute)
+      private
 
-            if property.is_a?(Brujula::Object)
-              property = parametize(original_property)
-            elsif property.is_a?(Brujula::MapObject)
-              property = property.dup.tap do |map_object|
-                items = map_object.instance_variable_get("@collection")
-                items = items.each_with_object({}) do |(name, item), collection|
-                  collection.merge!(parametize_string(name) => parametize(item))
-                end
-                map_object.instance_variable_set("@collection", items)
-              end
-            elsif property.is_a?(::String)
-              property = parametize_string(property)
-            end
+      def parametize(extend_object)
+        extend_object.dup.tap do |definition|
+          applicable_attributes(definition).each do |attribute|
+            property          = definition.instance_variable_get(attribute)
+            extended_property = parse_attribute(property)
 
-
-            object.instance_variable_set(attribute, property)
+            definition.instance_variable_set(attribute, extended_property)
           end
+        end
+      end
+
+      def parse_attribute(definition)
+        case
+        when definition.is_a?(Brujula::Object)
+          parametize(definition)
+        when definition.is_a?(Brujula::MapObject)
+          parametize_map_object(definition)
+        when definition.is_a?(::String)
+          parametize_string(definition)
+        else
+          definition
+        end
+      end
+
+      def parametize_map_object(definition)
+        definition.dup.tap do |map_object|
+          items = map_object.instance_variable_get("@collection")
+          items = items.each_with_object({}) do |(name, item), collection|
+            collection.merge!(parametize_string(name) => parametize(item))
+          end
+          map_object.instance_variable_set("@collection", items)
         end
       end
 
