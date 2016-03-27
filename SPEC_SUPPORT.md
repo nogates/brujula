@@ -139,10 +139,10 @@ Feature | status | comments
 ---|---|---
 Query Parameters, Responses, and Headers collection mergin | :white_check_mark: |
 usage description | :white_check_mark: |
-Optional properties (`/^?/`) | :warning: | Needs testing and real examples
-Algorithm of Merging Traits With Methods | :warning: | Needs testing and real examples
-Parameters (both custom and reserved parameters) | :x: |
-Modifier functions | :x: |
+Optional properties (`/^?/`) | :white_check_mark: :warning: | Needs testing and real examples
+Algorithm of Merging Traits With Methods | :white_check_mark: :warning: | Needs testing and real examples
+Parameters (both custom and reserved parameters) | :white_check_mark: |
+Modifier functions | :white_check_mark: |
 
 
 * [Security Schemes](https://github.com/raml-org/raml-spec/blob/raml-10-rc2/versions/raml-10/raml-10.md#security-schemes)
