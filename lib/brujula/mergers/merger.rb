@@ -11,16 +11,19 @@ module Brujula
       def call
         case
         when superinstance.is_a?(Brujula::MapObject)
-          MapObjectMerger.new(
-            instance: instance, superinstance: superinstance
-          ).call
+          MapObjectMerger.new(merger_options).call
         when superinstance.is_a?(Brujula::Object)
-          ObjectMerger.new(
-            instance: instance, superinstance: superinstance
-          ).call
+          ObjectMerger.new(merger_options).call
         else
           superinstance.dup
         end
+      end
+
+      def merger_options
+        {
+          instance:      instance,
+          superinstance: superinstance
+        }
       end
     end
   end

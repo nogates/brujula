@@ -26,7 +26,8 @@ module Brujula
 
       def apply_type(object)
         Brujula::Mergers::ObjectMerger.new(
-          superinstance: definition.type, instance: object
+          superinstance: parametized_type,
+          instance:      object,
         ).call
       end
 
@@ -43,9 +44,29 @@ module Brujula
       def apply_traits_to_method(method)
         definition.is.inject(method.dup) do |object, trait|
           Brujula::Mergers::ObjectMerger.new(
-            superinstance: trait, instance: object
+            superinstance: parametized_trait(trait, object), instance: object
           ).call
         end
+      end
+
+      def parametized_trait(trait, method)
+        Brujula::Parameters::Parser.new(
+          object:     trait,
+          parameters: parameter_builder(trait).method_params(definition, method)
+        ).call
+      end
+
+      def parametized_type
+        Brujula::Parameters::Parser.new(
+          object:     definition.type,
+          parameters: parameter_builder(definition.type).resource_params(definition)
+        ).call
+      end
+
+      def parameter_builder(object)
+        Brujula::Parameters::Builder.new(
+          object: object
+        )
       end
     end
   end

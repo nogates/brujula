@@ -6,6 +6,7 @@ require_relative 'brujula/initializers/yaml_include'
 
 require_relative 'brujula/object_parser'
 require_relative 'brujula/object_builder'
+require_relative 'brujula/referrer'
 require_relative 'brujula/scheme'
 require_relative 'brujula/raml'
 require_relative 'brujula/object'
@@ -13,6 +14,11 @@ require_relative 'brujula/map_object'
 require_relative 'brujula/key'
 require_relative 'brujula/basic_type'
 require_relative 'brujula/raml/exceptions'
+
+# parameters for trait and resource types
+require_relative 'brujula/parameters/transformer'
+require_relative 'brujula/parameters/parser'
+require_relative 'brujula/parameters/builder'
 
 # data transformers
 require_relative 'brujula/data_transformers/property_declaration'
