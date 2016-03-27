@@ -16,7 +16,7 @@ require_relative 'brujula/basic_type'
 require_relative 'brujula/raml/exceptions'
 
 # parameters for trait and resource types
-require_relative 'brujula/parameters/functions'
+require_relative 'brujula/parameters/transformer'
 require_relative 'brujula/parameters/parser'
 require_relative 'brujula/parameters/builder'
 

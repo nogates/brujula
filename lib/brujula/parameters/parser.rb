@@ -50,19 +50,14 @@ module Brujula
 
       def parametize_string(string)
         string.gsub(/<<(.*?)>>/) do |expression|
-          content          = expression.match(/<<(.*?)>>/)[1]
-          expression_chain = content.split('|')
-          parameter_name   = expression_chain.first.strip
-          value            = parameters.fetch(parameter_name)
-
-          expression_chain[1..-1].inject(value) do |result, function|
-            transformer_functions.call(result, function.strip)
-          end
+          parameter_transformer.call(expression)
         end
       end
 
-      def transformer_functions
-        @transformer_functions = Brujula::Parameters::Functions.new
+      def parameter_transformer
+        @parameter_transformer = Brujula::Parameters::Transformer.new(
+          parameters: parameters
+        )
       end
 
       def applicable_attributes(object)
