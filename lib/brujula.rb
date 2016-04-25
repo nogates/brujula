@@ -34,6 +34,7 @@ require_relative 'brujula/mergers/map_object_merger'
 require_relative 'brujula/type_extender/resource'
 require_relative 'brujula/type_extender/resource_type'
 require_relative 'brujula/type_extender/method'
+require_relative 'brujula/type_extender/raml_type'
 
 # Definitions
 require_relative 'brujula/raml/definition'
