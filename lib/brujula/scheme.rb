@@ -1,10 +1,8 @@
 module Brujula
   class Scheme
-    attr_reader :keys, :typed, :default_type, :reference,
-                :store_for_reference, :allow_any
+    attr_reader :keys, :typed, :default_type, :reference, :allow_any
 
     alias :typed? :typed
-    alias :store_object_for_reference? :store_for_reference
     alias :allow_any? :allow_any
 
     def initialize(klass, options = {}, block = nil)
@@ -13,7 +11,6 @@ module Brujula
       @keys                = {}
       @typed               = !!options[:typed]
       @default_type        = options[:default_type] || :string
-      @store_for_reference = !!options[:store_for_reference]
       @allow_any           = !!options[:allow_any]
 
       if options[:as]
