@@ -28,6 +28,9 @@ module Brujula
         else
           definition.root.types.fetch(definition.type)
         end
+      rescue KeyError => error
+        raise Brujula::Raml::InvalidTypeReference,
+          "The referenced type #{ definition.type } cannot be processed"
       end
     end
   end
