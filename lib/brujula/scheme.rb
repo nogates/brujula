@@ -30,7 +30,7 @@ module Brujula
       valid_keys?(data) || raise(Brujula::Raml::RequiredProperty) # && enough_data?(data))
     end
 
-    def typed_keys(type)
+    def typed_keys(type) # TODO
       keys.values.select do |brujula_key|
         brujula_key.valid_for_type?(type)
       end

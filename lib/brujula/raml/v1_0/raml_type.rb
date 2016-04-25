@@ -3,7 +3,7 @@ module Brujula
     module V1_0
       class RamlType < Brujula::Object
         scheme typed: true, default_type: :object do
-          key :type,   as: :string
+          key :type,   as: :any
           key :schema, as: :string, deprecated: true
 
           key :properties, as: :map_object, children: :property,
