@@ -33,10 +33,20 @@ module Brujula
     end
 
     def normalized_data
+      @normalized_data ||= apply_default_type(node_data)
+    end
+
+    def node_data
       return data unless external_data?
 
-      # TODO
       data.load_external_data(definition.root.base_dir)
+    end
+
+    def apply_default_type(data)
+      return data unless scheme.typed?
+      return data if data.key?("type")
+
+      data.merge("type" => scheme.default_type.to_s)
     end
 
     def external_data?
@@ -47,15 +57,10 @@ module Brujula
       @scheme ||= definition.class.scheme
     end
 
-    # Typed schemas must provide a type
-    def data_type
-      normalized_data.fetch('type', scheme.default_type)
-    end
-
     def scheme_keys
       return scheme.key_collection unless scheme.typed?
 
-      scheme.typed_keys(data_type)
+      scheme.typed_keys(normalized_data.fetch('type'))
     end
 
     def object_builder(key)

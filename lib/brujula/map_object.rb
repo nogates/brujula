@@ -70,6 +70,8 @@ module Brujula
         Brujula::TypeExtender::Method.new(definition: child).call
       when Brujula::Raml::V1_0::ResourceType
         Brujula::TypeExtender::ResourceType.new(definition: child).call
+      when Brujula::Raml::V1_0::RamlType
+        Brujula::TypeExtender::RamlType.new(definition: child).call
       else
         child
       end

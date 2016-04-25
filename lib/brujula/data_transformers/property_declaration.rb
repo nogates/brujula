@@ -17,7 +17,9 @@ module Brujula
       def call
         data.each_with_object({}) do |(key, property), object|
           if property.is_a?(String) # data as type
-            object.merge!(key => { "type" => property })
+            object.merge!(key.gsub(/\?$/, "") => {
+              "type" => property, "required" => !key.to_s.end_with?("?")
+            })
           else
             object.merge!(key => property)
           end

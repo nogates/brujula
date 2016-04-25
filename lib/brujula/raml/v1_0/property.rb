@@ -17,15 +17,15 @@ module Brujula
           key :enum, as: :array, unless_type_is: %w( file )
 
           # When Property is integer
-          key :minimum, as: :number, for_types: %( number integer )
-          key :maximum, as: :number, for_types: %( number integer )
+          key :minimum, as: :number, for_types: %w( number integer )
+          key :maximum, as: :number, for_types: %w( number integer )
           key :format, as: :string,
-              in: %( int32 int64 int long float double int16 int8 )
+              in: %w( int32 int64 int long float double int16 int8 )
 
           # When Property is string
-          key :pattern, as: :regexp, for_types: %( string )
-          key :min_length, as: :number, for_types: %( string )
-          key :max_length, as: :number, for_types: %( string )
+          key :pattern, as: :regexp, for_types: %w( string )
+          key :min_length, as: :number, for_types: %w( string )
+          key :max_length, as: :number, for_types: %w( string )
 
         end
       end

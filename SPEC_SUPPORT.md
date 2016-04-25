@@ -31,6 +31,36 @@ securedBy? | :warning: | Definition and merging support. Not fully tested though
 
 * [Raml Data Types](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md/#raml-data-types)
 
+Property | Status | Comments
+---|---|---
+schema? | :white_check_mark: :warning: | Show deprecation notice when using RAML 1.0
+type?	| :white_check_mark: :warning: | Some inheritance and merging strategies might not work
+example? | :white_check_mark: :warning: | Should complain if both example and examples are present
+examples? | :white_check_mark: :warning: | Should complain if both example and examples are present
+displayName?	| :white_check_mark: |
+description?	| :white_check_mark: |
+(<annotationName>)? | :x: |
+
+  * [Object Data Types](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md/#object-types)
+
+
+  Property | Status | Comments
+  ---|---|---
+  properties? | :white_check_mark: :warning: | Some property limitations. See properties
+  minProperties?	| :warning: | Not fully tested. Need examples
+  maxProperties? | :warning: | Not fully tested. Need examples
+  additionalProperties? | :warning: | Declaration works. Not fully tested
+  patternProperties? | :warning: | Declaration works. Not fully tested
+  discriminator?	| :x: |
+
+  Extra Feature | Status
+  ---|--
+  [Alternative Syntax](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md/#alternative-syntax) | :white_check_mark:
+  [Inheritance](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md/#inheritance) | :warning: See inheritance
+  [Map types](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md/#map-types) | :x:
+
+  * [Array Types](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md/#array-types)
+
 _TBC_
 
 * [Base URI and Base URI Parameters](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md#base-uri-and-base-uri-parameters)
