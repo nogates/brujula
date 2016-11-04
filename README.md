@@ -30,7 +30,7 @@ title: 'My example API'
 
 RAML
 
-raml = Brujula.parse(raml_string)
+raml = Brujula.parse_string(raml_string)
 ```
 
 As expected, the properties of the root object can be accessed from the root object
