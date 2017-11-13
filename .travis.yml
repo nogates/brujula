@@ -3,4 +3,4 @@ rvm:
   - 2.1.1
   - 2.2.2
 script:
-  - bundle exec rake
+  - bundle exec rake && bundle exec codeclimate-test-reporter
