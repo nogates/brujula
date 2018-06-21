@@ -1,4 +1,4 @@
-# Raml 1.0 (rc2) Specification support
+# RAML 1.0 Specification support
 
 :white_check_mark: The feature should work as expected
 
@@ -7,7 +7,7 @@
 :x: The feature is not currently supported (PRs are welcome!)
 
 
-- [Raml Root](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md/#the-root-of-the-document)
+- [RAML Root](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#the-root-of-the-document)
 
 Property | Status | Comments
 ---|---|---
@@ -29,7 +29,7 @@ mediaType? | :white_check_mark: |
 securedBy? | :warning: | Definition and merging support. Not fully tested though
 /resources?	| :white_check_mark: |
 
-* [Raml Data Types](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md/#raml-data-types)
+* [RAML Data Types](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#raml-data-types)
 
 Property | Status | Comments
 ---|---|---
@@ -41,7 +41,7 @@ displayName?	| :white_check_mark: |
 description?	| :white_check_mark: |
 (<annotationName>)? | :x: |
 
-  * [Object Data Types](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md/#object-types)
+  * [Object Data Types](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#object-types)
 
 
   Property | Status | Comments
@@ -55,15 +55,15 @@ description?	| :white_check_mark: |
 
   Extra Feature | Status
   ---|--
-  [Alternative Syntax](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md/#alternative-syntax) | :white_check_mark:
-  [Inheritance](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md/#inheritance) | :warning: See inheritance
-  [Map types](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md/#map-types) | :x:
+  [Alternative Syntax](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#alternative-syntax) | :white_check_mark:
+  [Inheritance](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#inheritance) | :warning: See inheritance
+  [Map types](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#map-types) | :x:
 
-  * [Array Types](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md/#array-types)
+  * [Array Types](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#array-types)
 
 _TBC_
 
-* [Base URI and Base URI Parameters](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md#base-uri-and-base-uri-parameters)
+* [Base URI and Base URI Parameters](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md#base-uri-and-base-uri-parameters)
 
 :white_check_mark: Parsing Base Uri and Base parameters as collection should works as expected
 
@@ -72,24 +72,24 @@ _TBC_
 :warning: These two properties should be mutually exclusive.
 
 
-* [Protocols](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md#protocols)
+* [Protocols](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md#protocols)
 
 :white_check_mark: Parsing protocols strings should work as expected
 
 :warning: Any protocol is currently accepted as long as they are strings.
 
-* [Default Media Type](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md#default-media-type)
+* [Default Media Type](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md#default-media-type)
 
 
 :white_check_mark: Parsing Media type and using it as default body key
 
 :warning: Media type validation
 
-* [Default Security](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md#default-security)
+* [Default Security](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md#default-security)
 
 :x: Although parsing security schemes is supported, applying their properties to the resources and methods is not yet implemented
 
-* [Resources and Nested Resources](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md#resources-and-nested-resources)
+* [Resources and Nested Resources](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md#resources-and-nested-resources)
 
 
 Property | Status | Comments
@@ -111,7 +111,7 @@ uriParameters?	| :white_check_mark: |
 /relativeUri as resource | :white_check_mark: |
 
 
-* [Template URIs and URI Parameters](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md#template-uris-and-uri-parameters)
+* [Template URIs and URI Parameters](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md#template-uris-and-uri-parameters)
 
 :warning: Parsing Uri Strings and Uri parameters as collection should works as expected
 
@@ -119,7 +119,7 @@ uriParameters?	| :white_check_mark: |
 
 :warning: These two properties should be mutually exclusive.
 
-* [Methods](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md#methods)
+* [Methods](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md#methods)
 
 
 Property | Status | Comments
@@ -136,14 +136,14 @@ protocols? | :warning: | Protocols limitations
 is?	| :white_check_mark: |
 securedBy?	| :warning: | Merging of security scheme properties is not yet implemented
 
-* [Headers](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md#headers)
+* [Headers](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md#headers)
 
 :white_check_mark: Parsing Headers as a properties declaration should work as expected
 
 :warning: Needs more testing, specially using headers of array type
 
 
-* [Query Strings and Query Parameters](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md#query-strings-and-query-parameters)
+* [Query Strings and Query Parameters](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md#query-strings-and-query-parameters)
 
 :white_check_mark: Parsing Query Strings and Query parameters as collection should works as expected
 
@@ -152,18 +152,18 @@ securedBy?	| :warning: | Merging of security scheme properties is not yet implem
 :warning: These two properties should be mutually exclusive.
 
 
-* [Bodies](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md#bodies)
+* [Bodies](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md#bodies)
 
 :white_check_mark: Body declarations using both strings (and therefore, default media type) and objects
 
-:warning: Same limitations as Raml Types
+:warning: Same limitations as RAML Types
 
-* [Responses](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md#responses)
+* [Responses](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md#responses)
 
 :white_check_mark: Responses should work as expected
 
 
-* [Resource Types and Traits](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md#resource-types-and-traits)
+* [Resource Types and Traits](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md#resource-types-and-traits)
 
 Feature | status | comments
 ---|---|---
@@ -175,7 +175,7 @@ Parameters (both custom and reserved parameters) | :white_check_mark: |
 Modifier functions | :white_check_mark: |
 
 
-* [Security Schemes](https://github.com/raml-org/raml-spec/blob/raml-10-rc2/versions/raml-10/raml-10.md#security-schemes)
+* [Security Schemes](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md#security-schemes)
 
 Type | Status | Comments
 ---|---|---
@@ -191,23 +191,21 @@ null |  :white_check_mark: |
 :warning: Merging security schemes is not yet implemented. :warning:
 
 
-* [Annotations](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md#annotations)
+* [Annotations](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md#annotations)
 
 :x: Not even started yet :x:
 
-* [Modularization](https://github.com/raml-org/raml-spec/blob/raml-10-rc2/versions/raml-10/raml-10.md#modularization)
+* [Modularization](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md#modularization)
 
 Type | Status | Comments
 ---|---|---
 `!include <absolute or relative url>` as Type Fragments | :white_check_mark: |
-`!include <absolute or relative url>#<reference>` as References to inner elements | :x: |
 
-
-* [Libraries](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md#libraries)
+* [Libraries](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md#libraries)
 
 
 :x: Not even started yet :x:
 
-* [Overlays and Extensions](https://github.com/raml-org/raml-spec/blob/raml-10/versions/raml-10/raml-10.md#overlays-and-extensions)
+* [Overlays and Extensions](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md#overlays-and-extensions)
 
 :x: Not even started yet :x:
