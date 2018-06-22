@@ -40,6 +40,14 @@ examples? | :white_check_mark: :warning: | Should complain if both example and e
 displayName?	| :white_check_mark: |
 description?	| :white_check_mark: |
 (<annotationName>)? | :x: |
+default? | :x: |
+facets? | :x: |
+xml? | :x: |
+enum? | :x: |
+
+Extra Feature | Status
+---|--
+[The "Any" Type](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#the-any-type) | :x:
 
   * [Object Data Types](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#object-type)
 
@@ -50,8 +58,9 @@ description?	| :white_check_mark: |
   minProperties?	| :warning: | Not fully tested. Need examples
   maxProperties? | :warning: | Not fully tested. Need examples
   additionalProperties? | :warning: | Declaration works. Not fully tested
-  patternProperties? | :warning: | Declaration works. Not fully tested
-  discriminator?	| :x: |
+  patternProperties? | :warning: | Declaration works. Not fully tested. **Concept is reworked in RAML 1.0**
+  discriminator?  | :x: |
+  discriminatorValue?	| :x: |
 
   Extra Feature | Status
   ---|--
@@ -59,6 +68,25 @@ description?	| :white_check_mark: |
   [Inheritance](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#object-type-specialization) | :warning: See inheritance
 
   * [Array Types](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#array-type)
+
+  * [Date Types](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#date) :x: There's no type `date` now (see below).
+
+  Property | Status | Comments
+  ---|---|---
+  date-only  | :x: |
+  time-only  | :x: |
+  time-only  | :x: |
+  datetime  | :x: |
+
+  * [Nil Type](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#nil-type) :x:
+
+  * [Type Expressions](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#type-expressions)
+
+  Property | Status | Comments
+  ---|---|---
+  `number{}`  | :warning: | Support is dropped in RAML 1.0
+
+  * [Determine Default Type](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#determine-default-types) :warning: Not sure if this is implemented
 
 _TBC_
 
@@ -83,6 +111,8 @@ _TBC_
 :white_check_mark: Parsing Media type and using it as default body key
 
 :warning: Media type validation
+
+:x: Multiple strings array as media type value
 
 * [Default Security](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md#default-security)
 
