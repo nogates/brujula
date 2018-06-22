@@ -42,7 +42,7 @@ description?	| :white_check_mark: |
 (<annotationName>)? | :x: |
 default? | :x: |
 facets? | :x: |
-xml? | :x: |
+xml? | :x: | [XML Serialization of Type Instances](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#xml-serialization-of-type-instances)
 enum? | :x: |
 
 Extra Feature | Status
@@ -87,6 +87,12 @@ Extra Feature | Status
   `number{}`  | :warning: | Support is dropped in RAML 1.0
 
   * [Determine Default Type](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#determine-default-types) :warning: Not sure if this is implemented
+
+  * [Examples Facets](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#as-a-map-that-contains-additional-facets)
+
+  Property | Status | Comments
+  ---|---|---
+  value  | :warning: | Implemented? Previously called `content`
 
 _TBC_
 
@@ -196,7 +202,7 @@ securedBy?	| :warning: | Merging of security scheme properties is not yet implem
 
 Feature | status | comments
 ---|---|---
-Query Parameters, Responses, and Headers collection mergin | :white_check_mark: |
+Query Parameters, Responses, and Headers collection merging | :white_check_mark: |
 usage description | :white_check_mark: |
 Optional properties (`/^?/`) | :white_check_mark: :warning: | Needs testing and real examples
 Algorithm of Merging Traits With Methods | :white_check_mark: :warning: | Needs testing and real examples
@@ -215,7 +221,10 @@ Digest Authentication | :white_check_mark: |
 Pass Through| :white_check_mark: |
 x-{other}	| :white_check_mark: |
 null |  :white_check_mark: |
-
+displayName |  :warning: | Implemented?
+describedBy.displayName |  :warning: | Support dropped in RAML 1.0
+describedBy.description |  :warning: | Support dropped in RAML 1.0
+settings.signatures |  :x: |
 
 :warning: Merging security schemes is not yet implemented. :warning:
 
