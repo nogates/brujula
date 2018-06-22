@@ -22,10 +22,10 @@ securitySchemes? | :white_check_mark: :warning: | Definition and merging support
 uses? | :x: |
 title	| :white_check_mark: |
 version	| :white_check_mark: |
-baseUri?	| :white_check_mark: |  
-baseUriParameters? | :white_check_mark: |  
-protocols?	| :white_check_mark: |  
-mediaType? | :white_check_mark: |  
+baseUri?	| :white_check_mark: |
+baseUriParameters? | :white_check_mark: |
+protocols?	| :white_check_mark: |
+mediaType? | :white_check_mark: |
 securedBy? | :warning: | Definition and merging support. Not fully tested though
 /resources?	| :white_check_mark: |
 
@@ -41,7 +41,7 @@ displayName?	| :white_check_mark: |
 description?	| :white_check_mark: |
 (<annotationName>)? | :x: |
 
-  * [Object Data Types](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#object-types)
+  * [Object Data Types](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#object-type)
 
 
   Property | Status | Comments
@@ -55,11 +55,10 @@ description?	| :white_check_mark: |
 
   Extra Feature | Status
   ---|--
-  [Alternative Syntax](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#alternative-syntax) | :white_check_mark:
-  [Inheritance](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#inheritance) | :warning: See inheritance
-  [Map types](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#map-types) | :x:
+  [Property declaration shortcut](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#property-declarations) | :white_check_mark:
+  [Inheritance](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#object-type-specialization) | :warning: See inheritance
 
-  * [Array Types](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#array-types)
+  * [Array Types](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#array-type)
 
 _TBC_
 
@@ -78,7 +77,7 @@ _TBC_
 
 :warning: Any protocol is currently accepted as long as they are strings.
 
-* [Default Media Type](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md#default-media-type)
+* [Default Media Types](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md#default-media-types)
 
 
 :white_check_mark: Parsing Media type and using it as default body key
